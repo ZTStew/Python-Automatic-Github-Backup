@@ -15,11 +15,21 @@ Resources:
   https://stackoverflow.com/questions/11113896/use-git-commands-within-python-code
 """
 
-import os, subprocess
+import os, subprocess, sys
 import logging as log
 
+if getattr(sys, 'frozen', False):  
+    # Running as an exe
+    base_dir = os.path.dirname(sys.executable)
+else:
+    # Running as a .py file
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+log_path = os.path.join(base_dir, "log", "run.log")
+
+
 # path to log file
-log_path = '.\\log\\run.log'
+# log_path = '.\\log\\run.log'
 # log_path = os.path.dirname(os.path.abspath(__file__)) + '\\log\\run.log'
 
 
