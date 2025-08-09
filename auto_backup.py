@@ -84,13 +84,15 @@ def git_run(path):
     errors.append(e)
 
 
+  # Logs all command output informatoin
   if len(errors) > 0:
     log.error(errors)
+    output += "Push Failed!"
+    log.info(output + "\n\n")
   else:
     output += "Push Complete!"
+    log.info(output + "\n\n")
 
-  # Logs all command output informatoin
-  log.info(output + "\n\n")
 
 
 # location being searched for path variables
