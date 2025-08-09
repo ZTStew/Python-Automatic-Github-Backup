@@ -104,7 +104,7 @@ def git_run(path):
 #############################################################################################################
 
 # the name of the path file being searched
-path_file_name = "path.txt"
+path_file_name = "paths.txt"
 
 # gets path to location being searched for path variables
 backup_path = local_path + "/paths/" + path_file_name
@@ -118,9 +118,9 @@ with open(backup_path) as file:
     line = line.strip("\n").strip("\r")
 
     # confirms a line's path is valid
-    if os.backup_path.exists(line):
+    if os.path.exists(line):
       # confirms the provided directory is a git repo
-      if os.backup_path.exists(line + "/.git"):
+      if os.path.exists(line + "/.git"):
         log.info("Valid Directory, Valid Repository Found At: " + line)
         git_run(line)
       else:
