@@ -42,31 +42,40 @@ log.critical("### ### ### V Program Starts V ### ### ###")
 # Runs relevant git commands
 def git_run(path):
   # add changes for staging
-  log.info(subprocess.run(
-    ["git", "add", "."],
-    cwd=path,
-    check=True,
-    capture_output=True,
-    text=True
-  ))
+  try:
+    log.info(subprocess.run(
+      ["git", "add", "."],
+      cwd=path,
+      check=True,
+      capture_output=True,
+      text=True
+    ))
+  except Exception as e:
+    log.error(e)
 
   # commits repo changes
-  log.info(subprocess.run(
-    ["git", "commit", "-a", "--allow-empty-message", "-m", "\"\""],
-    cwd=path,
-    check=True,
-    capture_output=True,
-    text=True
-  ))
+  try:
+    log.info(subprocess.run(
+      ["git", "commit", "-a", "--allow-empty-message", "-m", "\"\""],
+      cwd=path,
+      check=True,
+      capture_output=True,
+      text=True
+    ))
+  except Exception as e:
+    log.error(e)
 
   # pushes changes to repo
-  log.info(subprocess.run(
-    ["git", "push"],
-    cwd=path,
-    check=True,
-    capture_output=True,
-    text=True
-  ))
+  try:
+    log.info(subprocess.run(
+      ["git", "push"],
+      cwd=path,
+      check=True,
+      capture_output=True,
+      text=True
+    ))
+  except Exception as e:
+    log.error(e)
 
 
 # location being searched for path variables
