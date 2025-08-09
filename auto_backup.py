@@ -85,7 +85,7 @@ def git_run(path):
     errors.append(e)
 
   # Logs all command output informatoin
-  log.info(output)
+  log.info(output + "\n\n")
 
   if len(errors) > 0:
     log.error(errors)
