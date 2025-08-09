@@ -80,6 +80,7 @@ def git_run(path):
       capture_output=True,
       text=True
     ).stdout
+    output += "Push Complete!"
   except Exception as e:
     errors.append(e)
 
@@ -88,8 +89,6 @@ def git_run(path):
 
   if len(errors) > 0:
     log.error(errors)
-  else:
-    output += "Push Complete!"
 
 
 # location being searched for path variables
@@ -113,7 +112,6 @@ with open(path) as file:
     else:
       log.info("Invalid Directory: " + line)
 
-    # log.info("\n\n")
 
 file.close()
 log.critical("Program Terminated\n\n")
