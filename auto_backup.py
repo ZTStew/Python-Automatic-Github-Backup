@@ -73,7 +73,7 @@ def git_run(path):
 
   # pushes changes to repo
   try:
-    subprocess.run(
+    output += subprocess.run(
       ["git", "push"],
       cwd=path,
       check=True,
@@ -113,7 +113,7 @@ with open(path) as file:
     else:
       log.info("Invalid Directory: " + line)
 
-    log.info("\n\n")
+    # log.info("\n\n")
 
 file.close()
 log.critical("Program Terminated\n\n")
