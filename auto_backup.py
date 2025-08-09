@@ -18,7 +18,7 @@ Resources:
 import os, subprocess
 import logging as log
 
-log_path = os.path.dirname(os.path.abspath(__file__)) + '\\log\\run.log'
+log_path = '.\\log\\run.log'
 
 log.basicConfig(
     filename= log_path,
