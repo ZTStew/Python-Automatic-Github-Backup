@@ -44,7 +44,8 @@ log.critical("### ### ### V Program Starts V ### ### ###")
 # Runs relevant git commands
 def git_run(path):
   output = ""
-  errors = ""
+  errors = []
+
   # add changes for staging
   try:
     output += subprocess.run(
@@ -55,7 +56,7 @@ def git_run(path):
       text=True
     ).stdout
   except Exception as e:
-    errors += str(e) + "\n"
+    errors.append(e)
 
   # commits repo changes
   try:
@@ -67,7 +68,7 @@ def git_run(path):
       text=True
     ).stdout
   except Exception as e:
-    errors += str(e) + "\n"
+    errors.append(e)
 
 
   # pushes changes to repo
@@ -80,7 +81,7 @@ def git_run(path):
       text=True
     ).stdout
   except Exception as e:
-    errors += str(e) + "\n"
+    errors.append(e)
 
   # Logs all command output informatoin
   log.info(output)
