@@ -56,6 +56,14 @@ def git_run(path):
     text=True
   ))
 
+  log.info(subprocess.run(
+    ["git", "push"],
+    cwd=path,
+    check=True,
+    capture_output=True,
+    text=True
+  ))
+
 
 path = "./paths/paths.txt"
 
