@@ -73,7 +73,7 @@ def git_run(path):
 
   # pushes changes to repo
   try:
-    output += subprocess.run(
+    subprocess.run(
       ["git", "push"],
       cwd=path,
       check=True,
