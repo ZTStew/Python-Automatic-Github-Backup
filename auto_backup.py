@@ -18,10 +18,9 @@ Resources:
 import os, subprocess
 import logging as log
 
-log_path = os.path.dirname(os.path.abspath(__file__)) + '\\log\\run.log'
-# print(__file__)
-# print(os.path.dirname(os.path.abspath(__file__)))
-# path = os.path.dirname(os.path.abspath(__file__)) + '\\Log\\template.log'
+# path to log file
+log_path = '.\\log\\run.log'
+# log_path = os.path.dirname(os.path.abspath(__file__)) + '\\log\\run.log'
 
 
 log.basicConfig(
@@ -52,7 +51,7 @@ def git_run(path):
       check=True,
       capture_output=True,
       text=True
-    ))
+    ).stdout)
   except Exception as e:
     log.error(e)
 
@@ -64,7 +63,7 @@ def git_run(path):
       check=True,
       capture_output=True,
       text=True
-    ))
+    ).stdout)
   except Exception as e:
     log.error(e)
 
@@ -76,7 +75,7 @@ def git_run(path):
       check=True,
       capture_output=True,
       text=True
-    ))
+    ).stdout)
   except Exception as e:
     log.error(e)
 
