@@ -6,8 +6,8 @@ Description:
 Requirements:
   [x] Read .txt file to get file path(s) for local repo location(s)
   [x] File path location must already be a Github repo
-  [] Navigate to local repo(s)
-  [] Run: git add . | git commit -a --allow-empty-message -m "" | git push
+  [x] Navigate to local repo(s)
+  [x] Run: git add . | git commit -a --allow-empty-message -m "" | git push
   [] Convert program into .exe for automatic running
   [] Add program to Task Scheduler running every (x) days
 
@@ -38,8 +38,9 @@ log.basicConfig(
 
 log.critical("### ### ### V Program Starts V ### ### ###")
 
-
+# Runs relevant git commands
 def git_run(path):
+  # add changes for staging
   log.info(subprocess.run(
     ["git", "add", "."],
     cwd=path,
@@ -48,6 +49,7 @@ def git_run(path):
     text=True
   ))
 
+  # commits repo changes
   log.info(subprocess.run(
     ["git", "commit", "-a", "--allow-empty-message", "-m", "\"\""],
     cwd=path,
@@ -56,6 +58,7 @@ def git_run(path):
     text=True
   ))
 
+  # pushes changes to repo
   log.info(subprocess.run(
     ["git", "push"],
     cwd=path,
@@ -65,18 +68,20 @@ def git_run(path):
   ))
 
 
+# location being searched for path variables
 path = "./paths/paths.txt"
 
+# loops through paths provided to read each contained path
 with open(path) as file:
   for line in file:
 
     # non-existant lines are being read. Not a major issue due to confirmation code.
     line = line.strip("\n").strip("\r")
 
+    # confirms a line's path is valid
     if os.path.exists(line):
+      # confirms the provided directory is a git repo
       if os.path.exists(line + "/.git"):
-        print("valid path")
-        print(line + "/.git")
         log.info("Valid Directory, Valid Repository Found At: " + line)
         git_run(line)
       else:
