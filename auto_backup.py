@@ -82,12 +82,13 @@ def git_run(path):
   except Exception as e:
     errors += str(e) + "\n"
 
-  if output:
-    log.info(output)
-  if len(errors) < 0:
-    output += "Push Complete!"
-  else:
+  # Logs all command output informatoin
+  log.info(output)
+
+  if len(errors) > 0:
     log.error(errors)
+  else:
+    output += "Push Complete!"
 
 
 # location being searched for path variables
