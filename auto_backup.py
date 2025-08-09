@@ -19,6 +19,7 @@ import os, subprocess
 import logging as log
 
 log_path = '.\\log\\run.log'
+print(__file__)
 
 log.basicConfig(
     filename= log_path,
