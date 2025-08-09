@@ -6,6 +6,7 @@ Program is intended to automatically commit specified folder(s) to github at spe
 ---
 ### Usage:
 (explanation of how to use the program)
-1. In locations.txt, place the absolute path to the desired folders to backup
-2. Using Task Scheduler, set auto_backup.py to be run at regular intervals
-3. Backup files get commited to their specific Github repository
+1. In `paths/paths_sample.txt`, place the absolute path to the desired folders to backup
+2. Rename `paths_sample.txt` to `paths.txt`
+3. Using Task Scheduler, set auto_backup.py to be run at regular intervals
+4. Backup files get commited to their specific Github repository

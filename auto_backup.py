@@ -8,8 +8,8 @@ Requirements:
   [x] File path location must already be a Github repo
   [x] Navigate to local repo(s)
   [x] Run: git add . | git commit -a --allow-empty-message -m "" | git push
-  [] Convert program into .exe for automatic running
-  [] Add program to Task Scheduler running every (x) days
+  [x] Convert program into .exe for automatic running
+  [x] Add program to Task Scheduler running every (x) days
 
 Resources:
   https://stackoverflow.com/questions/11113896/use-git-commands-within-python-code
