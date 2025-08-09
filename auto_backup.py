@@ -55,7 +55,7 @@ def git_run(path):
       text=True
     ).stdout
   except Exception as e:
-    errors += e + "\n"
+    errors += str(e) + "\n"
 
   # commits repo changes
   try:
@@ -67,7 +67,7 @@ def git_run(path):
       text=True
     ).stdout
   except Exception as e:
-    errors += e + "\n"
+    errors += str(e) + "\n"
 
 
   # pushes changes to repo
@@ -80,7 +80,7 @@ def git_run(path):
       text=True
     ).stdout
   except Exception as e:
-    errors += e + "\n"
+    errors += str(e) + "\n"
 
   if output:
     log.info(output)
