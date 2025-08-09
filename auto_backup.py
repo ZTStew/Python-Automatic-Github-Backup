@@ -80,7 +80,6 @@ def git_run(path):
       capture_output=True,
       text=True
     ).stdout
-    output += "Push Complete!"
   except Exception as e:
     errors.append(e)
 
@@ -89,6 +88,8 @@ def git_run(path):
 
   if len(errors) > 0:
     log.error(errors)
+  else:
+    output += "Push Complete!"
 
 
 # location being searched for path variables
