@@ -18,19 +18,17 @@ Resources:
 import os, subprocess, sys
 import logging as log
 
+
+# gets local path to program execution location
 if getattr(sys, 'frozen', False):  
     # Running as an exe
-    base_dir = os.path.dirname(sys.executable)
+    local_path = os.path.dirname(sys.executable)
 else:
     # Running as a .py file
-    base_dir = os.path.dirname(os.path.abspath(__file__))
+    local_path = os.path.dirname(os.path.abspath(__file__))
 
-log_path = os.path.join(base_dir, "log", "run.log")
-
-
-# path to log file
-# log_path = '.\\log\\run.log'
-# log_path = os.path.dirname(os.path.abspath(__file__)) + '\\log\\run.log'
+# sets path to log_file
+log_path = local_path + "/log/run.log"
 
 
 log.basicConfig(
@@ -103,22 +101,26 @@ def git_run(path):
     output += "Push Complete!"
     log.info(output + "\n\n")
 
+#############################################################################################################
+
+# the name of the path file being searched
+path_file_name = "path.txt"
+
+# gets path to location being searched for path variables
+backup_path = local_path + "/paths/" + path_file_name
 
 
-# location being searched for path variables
-path = "./paths/paths.txt"
-
-# loops through paths provided to read each contained path
-with open(path) as file:
+# loops through paths provided to get each contained path
+with open(backup_path) as file:
   for line in file:
 
     # non-existant lines are being read. Not a major issue due to confirmation code.
     line = line.strip("\n").strip("\r")
 
     # confirms a line's path is valid
-    if os.path.exists(line):
+    if os.backup_path.exists(line):
       # confirms the provided directory is a git repo
-      if os.path.exists(line + "/.git"):
+      if os.backup_path.exists(line + "/.git"):
         log.info("Valid Directory, Valid Repository Found At: " + line)
         git_run(line)
       else:
@@ -126,6 +128,7 @@ with open(path) as file:
     else:
       log.info("Invalid Directory: " + line)
 
+#############################################################################################################
 
 file.close()
 log.critical("Program Terminated\n\n")
