@@ -77,6 +77,7 @@ def git_run(path):
       capture_output=True,
       text=True
     ).stdout
+    output += "Push Complete!"
   except Exception as e:
     log.error(e)
 
@@ -108,4 +109,4 @@ with open(path) as file:
     log.info("\n\n")
 
 file.close()
-log.critical("Program Terminated")
+log.critical("Program Terminated\n\n")
