@@ -20,6 +20,9 @@ import logging as log
 
 log_path = '.\\log\\run.log'
 print(__file__)
+print(os.path.dirname(os.path.abspath(__file__)))
+# path = os.path.dirname(os.path.abspath(__file__)) + '\\Log\\template.log'
+
 
 log.basicConfig(
     filename= log_path,
